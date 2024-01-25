@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_course/constants/colors.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 void main() {
-  runApp(const Home());
+  runApp(const WidgetDetail());
 }
 
-class WidgetDetail extends StatelessWidget {
+class WidgetDetail extends StatefulWidget {
   const WidgetDetail({super.key});
 
+  @override
+  State<WidgetDetail> createState() => _WidgetDetailState();
+}
+
+class _WidgetDetailState extends State<WidgetDetail> {
+  int value = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,46 +25,26 @@ class WidgetDetail extends StatelessWidget {
           backgroundColor: Colors.deepOrange,
           leading: const Text("Menu"),
         ),
-        body: const Center(
-          child: const Text("Hello Flutter"),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: const Text("+"),
-        ),
-      ),
-    );
-  }
-}
-
-class Home extends StatefulWidget {
-  const Home({super.key});
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  int value = 0;
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(value.toString()),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    value = value + 1;
-                  });
-                },
-                child: const Text("Click"),
-              ),
+               Text("Barış Arslan",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w300,
+                    color: HexColor(primaryColor)
+                ),
+              )
             ],
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () { setState(() {
+            value++;
+          }); },
+          child: const Text("+"),
         ),
       ),
     );
