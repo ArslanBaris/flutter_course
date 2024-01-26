@@ -23,8 +23,9 @@ class _WidgetDetailState extends State<WidgetDetail> {
           backgroundColor: Colors.deepOrange,
           leading: const Text("Menu", style: TextStyle(color: Colors.white)),
         ),
-        body: Container(
-          child: Column(
+        body:  Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
                 padding: const EdgeInsets.all(20.0),
@@ -53,7 +54,6 @@ class _WidgetDetailState extends State<WidgetDetail> {
               ),
             ],
           ),
-        ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             setState(() {
