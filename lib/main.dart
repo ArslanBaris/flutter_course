@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_course/constants/colors.dart';
-import 'package:hexcolor/hexcolor.dart';
 
 void main() {
   runApp(const WidgetDetail());
@@ -20,30 +18,48 @@ class _WidgetDetailState extends State<WidgetDetail> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Widget Detail"),
-          centerTitle: false,
+          title: const Text("Widget Detail",
+              style: TextStyle(color: Colors.white)),
           backgroundColor: Colors.deepOrange,
-          leading: const Text("Menu"),
+          leading: const Text("Menu", style: TextStyle(color: Colors.white)),
         ),
-        body: Center(
+        body: Container(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(value.toString()),
-               Text("Barış Arslan",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w300,
-                    color: HexColor(primaryColor)
+              Container(
+                padding: const EdgeInsets.all(20.0),
+                color: Colors.green,
+                margin: const EdgeInsets.only(bottom: 20.0),
+                child: const Text("Containe 1"),
+              ),
+              Container(
+                padding: const EdgeInsets.fromLTRB(40, 5, 40, 5),
+                color: Colors.green,
+                 margin: const EdgeInsets.only(bottom: 20.0),
+                child: const Text("Container 2"),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 20.0,horizontal:5.0),
+                color: Colors.green,
+                  margin: const EdgeInsets.only(bottom: 20.0),
+                child: const Text("Container 3"),
+              ),
+               Container(
+                color: Colors.green,
+                child: const Padding(
+                  padding:  EdgeInsets.all(8.0),
+                  child:  Text("Container 3"),
                 ),
-              )
+              ),
             ],
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () { setState(() {
-            value++;
-          }); },
+          onPressed: () {
+            setState(() {
+              value++;
+            });
+          },
           child: const Text("+"),
         ),
       ),
